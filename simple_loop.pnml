@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+  <net id="net_loop" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text>SimpleLoopNet</text>
+    </name>
+
+    <page id="page1">
+      <place id="p_start">
+        <name>
+          <text>Start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+
+      <place id="p_mid">
+        <name>
+          <text>Middle</text>
+        </name>
+        <initialMarking>
+          <text>0</text>
+        </initialMarking>
+      </place>
+
+      <transition id="t1">
+        <name>
+          <text>go_to_mid</text>
+        </name>
+      </transition>
+
+      <transition id="t2">
+        <name>
+          <text>back_to_start</text>
+        </name>
+      </transition>
+
+      <arc id="a1" source="p_start" target="t1" />
+      <arc id="a2" source="t1" target="p_mid" />
+      <arc id="a3" source="p_mid" target="t2" />
+      <arc id="a4" source="t2" target="p_start" />
+    </page>
+  </net>
+</pnml>
